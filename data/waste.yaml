@@ -1,0 +1,10 @@
+# train and val datasets (image directory or *.txt file with image paths)
+train: ../coco/train.txt
+val: ../coco/val.txt
+test: ../coco/test.txt
+
+# number of classes
+nc: 
+
+# class names
+names: ['paper', 'glass', 'metal', 'plastic']
