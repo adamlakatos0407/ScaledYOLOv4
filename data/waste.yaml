@@ -4,7 +4,7 @@ val: ../coco/val.txt
 test: ../coco/test.txt
 
 # number of classes
-nc: 
+nc: 4
 
 # class names
 names: ['paper', 'glass', 'metal', 'plastic']
