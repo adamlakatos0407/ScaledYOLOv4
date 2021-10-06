@@ -1,7 +1,7 @@
 # train and val datasets (image directory or *.txt file with image paths)
-train: ../coco/train.txt
-val: ../coco/val.txt
-test: ../coco/test.txt
+train: /content/train.txt
+val:  /content/val.txt
+test:  /content/test.txt
 
 # number of classes
 nc: 4
