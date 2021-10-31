@@ -16,11 +16,11 @@ fl_gamma: 0.0
 hsv_h: 0.0308
 hsv_s: 0.595
 hsv_v: 0.393
-degrees: 0.0
+degrees: 360
 translate: 0.408
-scale: 0.43
-shear: 0.0
-perspective: 0.0
-flipud: 0.0
-fliplr: 0.392
+scale: 0.5
+shear: 20
+perspective: 0.0005
+flipud: 0.5
+fliplr: 0.5
 mixup: 0.103
