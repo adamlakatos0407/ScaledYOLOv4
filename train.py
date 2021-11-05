@@ -466,7 +466,8 @@ if __name__ == '__main__':
                 'perspective': (1, 0.0, 0.001),  # image perspective (+/- fraction), range 0-0.001
                 'flipud': (0, 0.0, 1.0),  # image flip up-down (probability)
                 'fliplr': (1, 0.0, 1.0),  # image flip left-right (probability)
-                'mixup': (1, 0.0, 1.0)}  # image mixup (probability)
+                'mixup': (1, 0.0, 1.0),  # image mixup (probability)
+                'gridmask': (1, 0.0, 1.0)}  # image gridmask (probability)
 
         assert opt.local_rank == -1, 'DDP mode not implemented for --evolve'
         opt.notest, opt.nosave = True, True  # only test/save final epoch
