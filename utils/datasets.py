@@ -1835,7 +1835,6 @@ def gridmask(img, labels):
     color = [0, 0, 0]
     thickness = -1
     # Drawing
-    print(size, padding)
     for y in range(first_y, last_y, size + padding):
         for x in range(first_x, last_x, size + padding):
             img = cv2.rectangle(img, (x, y), (x + size, y + size), color, thickness)
