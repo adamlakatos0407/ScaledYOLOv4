@@ -1823,6 +1823,7 @@ def create_folder(path='./new'):
 def gridmask(img, labels):
     # Calculates average bbox area
     bbox_areas = [(l[3] - l[1]) * (l[4] - l[2]) for l in labels]
+    average_bbox_area = 0
     if len(bbox_areas) > 0:
       average_bbox_area = sum(bbox_areas) // len(bbox_areas)
     # Information loss depends on area
