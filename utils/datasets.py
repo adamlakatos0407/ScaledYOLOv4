@@ -1431,7 +1431,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
 
             # Augment colorspace
             augment_hsv(img, hgain=hyp['hsv_h'], sgain=hyp['hsv_s'], vgain=hyp['hsv_v'])
-
+            
             # Augment information loss
             if random.random() < hyp['gridmask']:
                 img = gridmask(img, labels)
@@ -1446,7 +1446,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
             labels[:, [2, 4]] /= img.shape[0]  # normalized height 0-1
             labels[:, [1, 3]] /= img.shape[1]  # normalized width 0-1
 
-        if self.augment:
+        if self.augment:              
             # flip up-down
             if random.random() < hyp['flipud']:
                 img = np.flipud(img)
@@ -1823,20 +1823,22 @@ def create_folder(path='./new'):
 def gridmask(img, labels):
     # Calculates average bbox area
     bbox_areas = [(l[3] - l[1]) * (l[4] - l[2]) for l in labels]
-    average_bbox_area = sum(bbox_areas) // len(bbox_areas)
+    if len(bbox_areas) > 0:
+      average_bbox_area = sum(bbox_areas) // len(bbox_areas)
     # Information loss depends on area
     ratio = random.randint(8, 12)
-    size = round(math.sqrt(average_bbox_area * 1 / ratio))
-    padding = size * random.randint(80, 120) // 100
-    # Setting up starting parameters
-    first_x = random.randint(0, (size + size // 2))
-    first_y = random.randint(0, (size + size // 2))
-    last_x, last_y = img.shape[:2]
-    color = [0, 0, 0]
-    thickness = -1
-    # Drawing
-    for y in range(first_y, last_y, size + padding):
-        for x in range(first_x, last_x, size + padding):
-            img = cv2.rectangle(img, (x, y), (x + size, y + size), color, thickness)
+    if average_bbox_area > 0:
+      size = round(math.sqrt(average_bbox_area * 1 / ratio))
+      padding = size * random.randint(80, 120) // 100
+      # Setting up starting parameters
+      first_x = random.randint(0, (size + size // 2))
+      first_y = random.randint(0, (size + size // 2))
+      last_x, last_y = img.shape[:2]
+      color = [0, 0, 0]
+      thickness = -1
+      # Drawing
+      for y in range(first_y, last_y, size + padding):
+          for x in range(first_x, last_x, size + padding):
+              img = cv2.rectangle(img, (x, y), (x + size, y + size), color, thickness)
 
     return img
