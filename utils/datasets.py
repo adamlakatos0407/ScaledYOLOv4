@@ -1824,11 +1824,11 @@ def gridmask(img, labels):
     # Calculates average bbox area
     bbox_areas = [(l[3] - l[1]) * (l[4] - l[2]) for l in labels]
     average_bbox_area = 0
-    if len(bbox_areas) > 0:
+    if bbox_areas:
       average_bbox_area = sum(bbox_areas) // len(bbox_areas)
     # Information loss depends on area
     ratio = random.randint(8, 12)
-    if average_bbox_area > 0:
+    if average_bbox_area:
       size = round(math.sqrt(average_bbox_area * 1 / ratio))
       padding = size * random.randint(80, 120) // 100
       # Setting up starting parameters
