@@ -1,6 +1,6 @@
 # train and val datasets (image directory or *.txt file with image paths)
 train: /content/train.txt
-val:  /content/val.txt
+val:  /content/valid.txt
 test:  /content/test.txt
 
 # number of classes
