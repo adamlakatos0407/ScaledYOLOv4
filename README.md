@@ -4,6 +4,8 @@ This is the implementation of "[Scaled-YOLOv4: Scaling Cross Stage Partial Netwo
 
 This is a modified version of the "[Scaled-YOLOv4 implementation](https://github.com/WongKinYiu/ScaledYOLOv4)"
 
+Results: https://drive.google.com/drive/folders/1-AIjuoPN0L4bWYgIeAMB62HD6Um_tGtC?usp=sharing
+
 ## Citation
 
 ```
